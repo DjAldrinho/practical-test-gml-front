@@ -1,0 +1,73 @@
+<div>
+  <div class="mb-4">
+    <button class="btn btn-rounded btn-primary me-2" (click)="open(content)">
+      <i class="fas fa-plus"></i> New
+    </button>
+    <button class="btn btn-secondary" (click)="exportClients()">
+      <i class="fas fa-file" aria-hidden="true"></i> Export
+    </button>
+  </div>
+  @if (successMessage) {
+  <ngb-alert type="success">{{ successMessage }}</ngb-alert>
+  }
+</div>
+
+<ng-template #content let-modal>
+  <form [formGroup]="createClientForm" (ngSubmit)="createClient(modal)">
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">New Client</h4>
+      <button
+        type="button"
+        class="btn-close"
+        aria-label="Close"
+        (click)="modal.dismiss('Cross click')"
+      ></button>
+    </div>
+    <div class="modal-body">
+      @if (errorMessage) {
+      <ngb-alert type="danger">{{ errorMessage }}</ngb-alert>
+      }
+      <div class="mb-3">
+        <div class="mb-3">
+          <label>Shared key</label>
+          <div class="input-group">
+            <input
+              class="form-control"
+              type="text"
+              formControlName="sharedKey"
+            />
+          </div>
+        </div>
+        <label>Business Id</label>
+        <div class="input-group">
+          <input
+            class="form-control"
+            type="text"
+            formControlName="businessId"
+          />
+        </div>
+      </div>
+      <div class="mb-3">
+        <label>Phone</label>
+        <div class="input-group">
+          <input class="form-control" type="text" formControlName="phone" />
+        </div>
+      </div>
+      <div class="mb-3">
+        <label>Email</label>
+        <div class="input-group">
+          <input class="form-control" type="email" formControlName="email" />
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button
+        type="submit"
+        [disabled]="createClientForm.invalid"
+        class="btn btn-primary"
+      >
+        Ok
+      </button>
+    </div>
+  </form>
+</ng-template>
