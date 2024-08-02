@@ -1,0 +1,28 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Shared Key</th>
+      <th>Business ID</th>
+      <th>E-mail</th>
+      <th>Phone</th>
+      <th>Data Added</th>
+      <th class="text-primary text-center">
+        <i class="fas fa-pencil"></i>
+      </th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let client of clients">
+    <tr>
+      <td>{{ client.sharedKey }}</td>
+      <td>{{ client.businessId }}</td>
+      <td>{{ client.email }}</td>
+      <td>{{ client.phone }}</td>
+      <td>{{ client.dataAddedFormatted }}</td>
+      <td class="text-center">
+        <a class="text-secondary">
+          <i class="fas fa-pencil"></i>
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
