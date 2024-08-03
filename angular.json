@@ -108,6 +108,14 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@netlify-builder/deploy:deploy",
+          "options": {
+            "outputPath": "dist/practical-test-gml-front",
+            "netlifyToken": "nfp_xaQATP9rDHHxUrD9DeYwU9PbhNGRdSRH26b9",
+            "siteId": "caf376c3-fed8-4852-9ca5-87196cbf7010"
+          }
         }
       }
     }
