@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://my-prod-url',
+  apiUrl: 'https://practical-test-gml-production.up.railway.app/api',
 };

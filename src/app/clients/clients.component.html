@@ -1,21 +1,31 @@
-<div class="row">
-  <div class="col-4">
-    <app-nav></app-nav>
-  </div>
-  <div class="col-8">
-    <div class="my-2 text-left">
-      <app-panel-buttons
-        (clientCreated)="onClientCreated()"
-      ></app-panel-buttons>
-    </div>
-    <div class="row">
-      <app-search (clientsFound)="onSearch($event)"></app-search>
+<div class="container">
+  <div class="row">
+    <!-- Columna para el componente de navegación -->
+    <div class="col-12 col-md-4">
+      <app-nav></app-nav>
     </div>
 
-    <div>
-      <h2 class="text-primary">Clients</h2>
+    <!-- Columna para el contenido principal -->
+    <div class="col-12 col-md-8">
+      <!-- Contenedor para los botones del panel -->
+      <div class="my-2 text-start">
+        <app-panel-buttons
+          (clientCreated)="onClientCreated()"
+        ></app-panel-buttons>
+      </div>
 
-      <app-table [clients]="clients"></app-table>
+      <!-- Contenedor para la búsqueda de clientes -->
+      <div class="row">
+        <div class="col-12">
+          <app-search (clientsFound)="onSearch($event)"></app-search>
+        </div>
+      </div>
+
+      <!-- Contenedor para la tabla de clientes -->
+      <div>
+        <h2 class="text-primary">Clients</h2>
+        <app-table [clients]="clients"></app-table>
+      </div>
     </div>
   </div>
 </div>

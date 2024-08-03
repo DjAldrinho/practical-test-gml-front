@@ -1,17 +1,21 @@
 <div>
+  <!-- Botones de acción -->
   <div class="mb-4">
-    <button class="btn btn-rounded btn-primary me-2" (click)="open(content)">
+    <button class="btn btn-primary me-2" (click)="open(content)">
       <i class="fas fa-plus"></i> New
     </button>
     <button class="btn btn-secondary" (click)="exportClients()">
       <i class="fas fa-file" aria-hidden="true"></i> Export
     </button>
   </div>
-  @if (successMessage) {
-  <ngb-alert type="success">{{ successMessage }}</ngb-alert>
-  }
+
+  <!-- Mensaje de éxito -->
+  <ng-container *ngIf="successMessage">
+    <ngb-alert type="success">{{ successMessage }}</ngb-alert>
+  </ng-container>
 </div>
 
+<!-- Modal -->
 <ng-template #content let-modal>
   <form [formGroup]="createClientForm" (ngSubmit)="createClient(modal)">
     <div class="modal-header">
@@ -24,40 +28,47 @@
       ></button>
     </div>
     <div class="modal-body">
-      @if (errorMessage) {
-      <ngb-alert type="danger">{{ errorMessage }}</ngb-alert>
-      }
+      <!-- Mensaje de error -->
+      <ng-container *ngIf="errorMessage">
+        <ngb-alert type="danger">{{ errorMessage }}</ngb-alert>
+      </ng-container>
+
+      <!-- Formulario -->
       <div class="mb-3">
-        <div class="mb-3">
-          <label>Shared key</label>
-          <div class="input-group">
-            <input
-              class="form-control"
-              type="text"
-              formControlName="sharedKey"
-            />
-          </div>
-        </div>
-        <label>Business Id</label>
-        <div class="input-group">
-          <input
-            class="form-control"
-            type="text"
-            formControlName="businessId"
-          />
-        </div>
+        <label for="sharedKey" class="form-label">Shared key</label>
+        <input
+          id="sharedKey"
+          class="form-control"
+          type="text"
+          formControlName="sharedKey"
+        />
       </div>
       <div class="mb-3">
-        <label>Phone</label>
-        <div class="input-group">
-          <input class="form-control" type="text" formControlName="phone" />
-        </div>
+        <label for="businessId" class="form-label">Business Id</label>
+        <input
+          id="businessId"
+          class="form-control"
+          type="text"
+          formControlName="businessId"
+        />
       </div>
       <div class="mb-3">
-        <label>Email</label>
-        <div class="input-group">
-          <input class="form-control" type="email" formControlName="email" />
-        </div>
+        <label for="phone" class="form-label">Phone</label>
+        <input
+          id="phone"
+          class="form-control"
+          type="text"
+          formControlName="phone"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input
+          id="email"
+          class="form-control"
+          type="email"
+          formControlName="email"
+        />
       </div>
     </div>
     <div class="modal-footer">
